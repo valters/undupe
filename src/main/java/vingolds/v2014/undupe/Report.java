@@ -2,6 +2,7 @@ package vingolds.v2014.undupe;
 
 import static java.lang.System.out;
 
+import java.io.Serializable;
 import java.nio.file.Path;
 import java.util.Collections;
 import java.util.Comparator;
@@ -17,7 +18,9 @@ import com.google.common.collect.Maps;
  */
 public class Report {
 
-    public static class StringLengthComparator implements Comparator<String> {
+    public static class StringLengthComparator implements Comparator<String>, Serializable {
+        private static final long serialVersionUID = 1L;
+
         public static final StringLengthComparator INSTANCE = new StringLengthComparator();
 
         public int compare( final String s1, final String s2 ) {
