@@ -13,6 +13,7 @@
 
     <properties>
         <com.google.guava.version>18.0</com.google.guava.version>
+        <findbugs.version>3.0.0</findbugs.version>
     </properties>
 
     <dependencies>
@@ -28,6 +29,29 @@
             <version>1.35</version>
         </dependency>
     </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${findbugs.version}</version>
+                <configuration>
+                    <effort>Max</effort>
+                    <threshold>Low</threshold>
+                    <xmlOutput>true</xmlOutput>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
     <!-- Various information, not used by the build -->
 
